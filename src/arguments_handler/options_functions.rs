@@ -1,15 +1,13 @@
-fn check_os_type() -> &'static str{
+/*
+    Holds helper functions for the arguments_handler.rs file
+*/
 
-    if cfg!(target_os = "windows") {
-        return "windows";
-    } else if cfg!(target_os = "linux") {
-        return "linux";
-    } else {
-        return "Other";
-    }
+/*
+    Get the exe file name
 
-}
-
+    Input --> None
+    Return --> String that holds the exe file name
+*/
 pub fn get_exec_file_name() -> String {
     
     let exe_path: std::path::PathBuf = std::env::current_exe().expect("Failed to get current executable path");
@@ -19,16 +17,25 @@ pub fn get_exec_file_name() -> String {
     return str_exe_name.to_owned();
 }
 
+/*
+    Helper fucntion to check the existence of an option and if it exists it check the option passed value
 
+    Input:
+        1) arguments: arguments from the stdin command line
+        2) option1: represt the -<char> option alias
+        3) option2: represt the --<option-name> alias
+    Return --> the value of the option the user have entered
+*/
 pub fn check_existence_of_option(arguments: &Vec<String>, option1: &str, option2: &str) -> String {
     
     let mut option_choice_value: String = String::new();
 
+    // Check the existence of the option alias
     if arguments.iter().any(|s: &String| s == option1 || s == option2) {
         
         let mut option_choice_index: usize = 0;
         
-
+        // Get the index of the user choice of the option
         if let Some(option_index) = arguments.iter().position(|value: &String| value == option1 || value == option2) {
             option_choice_index = option_index + 1;
         }
@@ -42,23 +49,23 @@ pub fn check_existence_of_option(arguments: &Vec<String>, option1: &str, option2
     return option_choice_value;
 }
 
+/*
+    List all the available browsers on the system which are located in:
+        1) /usr/bin/
+        2) /usr/local/bin
+        3) /snap/bin/
+    Input --> None
+    Return --> Vec<String> which holds all the available browsers full path of the system
+*/
 pub fn list_available_browsers() -> Vec<String> {
     
     let mut available_browsers: Vec<String> = Vec::new();
 
     // Directories to search in for the browser binary
-    let directories_to_search: Vec<&str> = if check_os_type() == "linux" {
-        vec!["/usr/bin/", "/usr/local/bin/", "/snap/bin/"]
-    } else if check_os_type() == "windows" {
-        println!("[!] Sorry listing the browsers or running the browser with the query on windows are not avaliable right now!");
-        println!("[!] You can use the -p option which will print the query instead.\n");
-        std::process::exit(-1);
-    } else {
-        vec!["None"]
-    };
+    let directories_to_search: Vec<&str> = vec!["/usr/bin/", "/usr/local/bin/", "/snap/bin/"];
 
     // Vector that holds the names of the browsers the program will look for
-    let browsers_names: Vec<&str> = vec!["firefox", "chrome", "google-chrome", "brave", "chromium"];
+    let browsers_names: Vec<&str> = vec!["firefox", "chrome", "brave", "chromium"];
 
     for browser in browsers_names {
         for dir in &directories_to_search {
@@ -73,13 +80,17 @@ pub fn list_available_browsers() -> Vec<String> {
     if available_browsers.len() < 1 {
         println!("[!] No Browsers where found!");
         return Vec::new();
-        //TODO add the browser full path and store the path of the browser in a file to use it
     } else {
         return available_browsers;
     }
 
 }
 
+/*
+    Function to check if the search engine that the user provided exists in the available_search_engines array
+    Input --> search_engine: name of the search engine provided by the user
+    Return --> true if found the search engine or false if not
+*/
 pub fn search_engine_option(search_engine: &String) -> bool {
     // Available search engines vector
     let available_search_engines: [String; 6] = ["google".to_string(), "duckduckgo".to_string(), 

@@ -1,5 +1,17 @@
+/*
+    contains help message function to display and function to check the existence of the arguments
+*/
+
 mod options_functions;
 
+/*
+    Help Message to display
+    
+    Input --> None
+    Return --> None
+    Calls: 
+        1) options_functions::get_exec_file_name() --> to get the exe file name
+*/
 pub fn help_message() {
     
     let exe_file_name: String = options_functions::get_exec_file_name();
@@ -21,9 +33,9 @@ pub fn help_message() {
 
         Available search engines:            _______________________________________
                                             |   google  |   duckduckgo  |   bing    |
-                                            |___________|_______________|___________|
-                                            |   yahoo   |     yandex    |   brave   |
-                                            |___________|_______________|___________|
+        Made By:                            |___________|_______________|___________|
+        ~ MuhammadMuazen ~                  |   yahoo   |     yandex    |   brave   |
+        ~ github.com/MuhammadMuazen ~       |___________|_______________|___________|
         
         Note: All the Google Dorks operators use the or method to search
         e.g: operator:<line1> or operator:<line2> where the lines come from the provided files
@@ -31,8 +43,31 @@ pub fn help_message() {
 [+] Example(1): {} "search_query" -b firefox -s brave -u inurl_file.txt -f filetypes.txt
 [+] Example(2): {} "seach_query" -b firefox -s google -r rules_file.txt"#, 
     exe_file_name, exe_file_name, exe_file_name);
+    
+    println!();
 }
 
+/*
+    The exposed function that is used to get the arguments and check if they exist
+    
+    Input --> arguments: which are passed from the main.rs and represt the stdin args
+    Return --> Vec<String> which holds the 9 values:
+        0) search_query
+        1) search_engine
+        2) browser
+        3) inurl
+        4) exluded_domains
+        5) intitle
+        6) intext
+        7) filetype
+        8) full_rules
+        9) print_search_query
+    Calls:
+        1) options_functions::list_available_browsers(): to check all the avaliable browsers on the system
+        2) options_functions::check_existence_of_option(): to get the option value and check it is existence
+        3) options_functions::search_engine_option(): to check if the provided search enigne exists or not
+
+*/
 pub fn handle_arguments(arguments: Vec<String>) -> Vec<String> {
     
     let mut search_query: String = String::new();

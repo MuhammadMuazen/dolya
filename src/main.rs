@@ -1,3 +1,8 @@
+// Made with haterd and vengence by: MuhammadMuazen ;> // Just Kidding
+// This is my first battle with the rust programming language don't judge XD
+// dolya was made as learning project for me to help me and others to use google dorks faster
+// https://github.com/MuhammadMuazen/dolya
+
 mod full_query_builder;
 mod arguments_handler;
 mod browser_command_builder;
@@ -18,9 +23,6 @@ fn main() {
     // Build the full searching query
     let query: String = full_query_builder::full_query(handled_args);
 
-    println!("{}", query);
-    println!("{}", browser_name);
-
     // Check if the user wants to print the query or running the browser with the query
     if print_query == "yes".to_string() {
         
@@ -28,20 +30,18 @@ fn main() {
 
     } else {
 
+        // Get the full running command
         let mut browser_command: Vec<String> = browser_command_builder::browser_query_command_line(query, browser_name);
 
         browser_command[1] = browser_command[1].trim_matches('\'').to_string();
 
-        println!("{} {}", browser_command[0].to_string(), browser_command[1].to_string());
+        println!("\n{} {}\n", browser_command[0].to_string(), browser_command[1].to_string());
 
+        // Running the command like this <browser> <query>
         std::process::Command::new(browser_command[0].to_string())
             .arg(browser_command[1].to_string())
             .spawn()
             .expect("[!] Failed to run the browser!");
     
     }
-
- 
-
-    //println!("{}", query);
 }
