@@ -1,0 +1,6 @@
+intitle:"new" or "old"
+intext: "what" or "who"
+inurl:"bus" or "car"
+filetype:"php" or "asp"
+-facebook
+-twitter
