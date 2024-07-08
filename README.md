@@ -1,7 +1,7 @@
 # Dolya
 
 ## What is Dolya? <br>
-### Dolya is a simple Google Dorks formatter and runner written in the rust programming language
+#### Dolya is a simple Google Dorks formatter and runner written in the rust programming language
 
 ## Usage: <br>
 ```
@@ -41,7 +41,7 @@
 ```
 ---
 ## OS Support?
-### Right now the project is only compatible with the linux operating system.<br>Support for windows OS will be added later.<br>
+#### Right now the project is only compatible with the linux operating system.<br>Support for windows OS will be added later.<br>
 ## Notes:  (Very Important)
-### 1. Security Alert: this program passed the arguments after formatting them to the command line shell which would open for a potential command inject attack. For now please make sure it has only the privilege it needs no root or admin privileges should be granted.<br><br>2. This is my first rust project so there might be a lot of weird approches to some problem but I will optimize the solutions as I am learning.<br><br>3. Have fun.
+#### 1. Security Alert: this program passed the arguments after formatting them to the command line shell which would open for a potential command inject attack. For now please make sure it has only the privilege it needs no root or admin privileges should be granted.<br><br>2. This is my first rust project so there might be a lot of weird approches to some problem but I will optimize the solutions as I am learning.<br><br>3. Have fun.
 ---  
