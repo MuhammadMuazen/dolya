@@ -1,4 +1,12 @@
-// Function to read a file from the system
+/*
+    Helper functions called in query_handler.rs
+*/
+
+/*
+    Function to read a file from the system
+    Input --> file path as a String
+    Return --> String: holds the content of the provided path
+*/
 pub fn read_file(file_path: String) -> String {
 
     let file_content: String = std::fs::read_to_string(file_path)
@@ -7,7 +15,11 @@ pub fn read_file(file_path: String) -> String {
     return file_content;
 }
 
-// Function to put the excluded domains operators in the end of the query string in the rules_handler function
+/*
+    Function to put the excluded domains operators in the end of the query string in the rules_handler function
+    Input --> the full rules query as a String
+    Return --> String: the rearranged query String
+*/
 pub fn rearrange_rules_file_elements(rules_query: String) -> String {
     
     let elements: Vec<&str> = rules_query.split_whitespace().collect();
@@ -31,7 +43,11 @@ pub fn rearrange_rules_file_elements(rules_query: String) -> String {
     return other_elements.join(" ");
 }
 
-// Function to handle the \n conditions in the end of every file
+/*
+    Function to handle the \n conditions in the end of every file
+    Input --> content of the passed file as a String
+    Return --> String: the content of the file after handling the end lines in it.
+*/
 pub fn end_file_content_handler(mut content: String) -> String {
     // If the file ends with two \n\n remove them but if it ends with one \n remove it only
     if content.len() >= 2 {

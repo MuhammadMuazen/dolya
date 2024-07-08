@@ -1,6 +1,17 @@
+/*
+    This file handle and format all the or operators, excluded domains, full rules options content
+*/
+
 mod query_helper_functions;
 
-// Function to handle: intitle, inurl, intext and filetype operators
+/* 
+    Function to handle: intitle, inurl, intext and filetype operators file content
+    Input --> provided file path as a String and the or operator as a String
+    Return --> String: the fomated content of the file provided for the option
+    Calls:
+        1) query_helper_functions::read_file(): to read a file
+        2) query_helper_functions::end_file_content_handler(): to handle the endline in each file
+*/
 pub fn or_operator_handler(file_path: String, operator: String) -> String {
 
     if file_path.is_empty() {
@@ -31,6 +42,14 @@ pub fn or_operator_handler(file_path: String, operator: String) -> String {
     return operator_query; 
 }
 
+/*
+    Function that handle and format the excluded domains option provided file content
+    Input --> the file path as String
+    Return --> String: which holds the formated file content
+    Calls:
+        1) query_helper_functions::read_file(): to read a file
+        2) query_helper_functions::end_file_content_handler(): to handle the endline in each file
+*/
 pub fn excluded_domains_handler(file_path: String) -> String {
 
     if file_path.is_empty() {
@@ -57,6 +76,15 @@ pub fn excluded_domains_handler(file_path: String) -> String {
     return excluded_domains_query;
 }
 
+/*
+    Function to handle and format the provided rules file content
+    Input --> the file path as a String
+    Return --> String: holds the formated file content
+    Calls:
+        1) query_helper_functions::read_file(): to read a file
+        2) query_helper_functions::end_file_content_handler(): to handle the endline in each file
+        3) query_helper_functions::rearrange_rules_file_elements(): used to put the excluded domains at the end of the returned String
+*/
 pub fn rules_handler(file_path: String) -> String {
 
     if file_path.is_empty() {

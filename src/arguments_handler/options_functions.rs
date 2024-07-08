@@ -6,7 +6,7 @@
     Get the exe file name
 
     Input --> None
-    Return --> String that holds the exe file name
+    Return --> String: holds the exe file name
 */
 pub fn get_exec_file_name() -> String {
     
@@ -24,7 +24,7 @@ pub fn get_exec_file_name() -> String {
         1) arguments: arguments from the stdin command line
         2) option1: represt the -<char> option alias
         3) option2: represt the --<option-name> alias
-    Return --> the value of the option the user have entered
+    Return --> String: the value of the option the user have entered
 */
 pub fn check_existence_of_option(arguments: &Vec<String>, option1: &str, option2: &str) -> String {
     
@@ -55,7 +55,7 @@ pub fn check_existence_of_option(arguments: &Vec<String>, option1: &str, option2
         2) /usr/local/bin
         3) /snap/bin/
     Input --> None
-    Return --> Vec<String> which holds all the available browsers full path of the system
+    Return --> Vec<String>: holds all the available browsers full path of the system
 */
 pub fn list_available_browsers() -> Vec<String> {
     
@@ -89,7 +89,7 @@ pub fn list_available_browsers() -> Vec<String> {
 /*
     Function to check if the search engine that the user provided exists in the available_search_engines array
     Input --> search_engine: name of the search engine provided by the user
-    Return --> true if found the search engine or false if not
+    Return --> bool: true if found the search engine or false if not
 */
 pub fn search_engine_option(search_engine: &String) -> bool {
     // Available search engines vector

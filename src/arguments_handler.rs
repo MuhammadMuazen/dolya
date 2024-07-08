@@ -51,7 +51,7 @@ pub fn help_message() {
     The exposed function that is used to get the arguments and check if they exist
     
     Input --> arguments: which are passed from the main.rs and represt the stdin args
-    Return --> Vec<String> which holds the 9 values:
+    Return --> Vec<String>: which holds the 9 values:
         0) search_query
         1) search_engine
         2) browser
@@ -71,14 +71,6 @@ pub fn help_message() {
 pub fn handle_arguments(arguments: Vec<String>) -> Vec<String> {
     
     let mut search_query: String = String::new();
-    let mut search_engine: String = String::new();
-    let mut browser: String = String::new();
-    let mut inurl: String = String::new();
-    let mut excluded_domains: String = String::new();
-    let mut intitle: String = String::new();
-    let mut intext: String = String::new();
-    let mut filetype: String = String::new();
-    let mut full_rules: String = String::new();
     // Value to check if the user want to print the search query
     let mut print_search_query: String = "no".to_string(); 
 
@@ -138,28 +130,36 @@ pub fn handle_arguments(arguments: Vec<String>) -> Vec<String> {
     }
 
     // -s, --search-engine option
-    search_engine = options_functions::check_existence_of_option(&arguments, "-s", "--search-engine");
+    let mut search_engine: String = options_functions::check_existence_of_option(
+        &arguments, "-s", "--search-engine");
     
     // -b, --browser option
-    browser = options_functions::check_existence_of_option(&arguments, "-b", "--browser");
+    let mut browser: String = options_functions::check_existence_of_option(
+        &arguments, "-b", "--browser");
 
     // -u, --inurl option
-    inurl = options_functions::check_existence_of_option(&arguments, "-u", "--inurl");
+    let mut inurl: String = options_functions::check_existence_of_option(
+        &arguments, "-u", "--inurl");
 
     // -e, --exclude-domains option
-    excluded_domains = options_functions::check_existence_of_option(&arguments, "-e", "--exclude-domains");
+    let mut excluded_domains: String = options_functions::check_existence_of_option(
+        &arguments, "-e", "--exclude-domains");
 
     // -i, --intitle option
-    intitle = options_functions::check_existence_of_option(&arguments, "-i", "--intitle");
+    let mut intitle: String = options_functions::check_existence_of_option(
+        &arguments, "-i", "--intitle");
 
     // -t, --intext option
-    intext = options_functions::check_existence_of_option(&arguments, "-t", "--intext");
+    let mut intext: String = options_functions::check_existence_of_option(
+        &arguments, "-t", "--intext");
 
     // -f, --filetype option
-    filetype = options_functions::check_existence_of_option(&arguments, "-f", "--filetype");
+    let mut filetype: String = options_functions::check_existence_of_option(
+        &arguments, "-f", "--filetype");
 
     // -r, --rules option
-    full_rules = options_functions::check_existence_of_option(&arguments, "-r", "--rules");
+    let full_rules: String = options_functions::check_existence_of_option(
+        &arguments, "-r", "--rules");
 
     if search_query.is_empty() {
         
