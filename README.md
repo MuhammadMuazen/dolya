@@ -18,8 +18,8 @@
         -h, --help                           print the help message
         -p, --print-search-query             will print the full search query instead of searching for it
         -l, --list-browsers                  list all the browsers which exist in the system
-        -b, --browser                        choose the browser you want to use for the search
-        -u, --inurl                          search for pages that have spicific word in the url
+        -b, --browser <brwoser-name>         choose the browser you want to use for the search
+        -u, --inurl <file>                   search for pages that have spicific word in the url
         -e, --exclude-domains <file>         get the excluded domains for the search from a text file
         -i, --intitle <file>                 search for pages that have spicific word
         -t, --intext <file>                  find pages where the specified word appears in the web page
