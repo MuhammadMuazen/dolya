@@ -1,4 +1,4 @@
-// Made with haterd and vengence by: MuhammadMuazen ;> // Just Kidding
+// Made with hatred and vengence by: MuhammadMuazen ;> // Just Kidding
 // This is my first battle with the rust programming language don't judge XD
 // dolya was made as learning project for me to help me and others to use google dorks faster
 // https://github.com/MuhammadMuazen/dolya
