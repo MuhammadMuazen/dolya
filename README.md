@@ -43,5 +43,7 @@
 ## OS Support?
 Right now the project is only compatible with the linux operating system.<br>Support for windows OS will be added later.<br>
 ## Notes:  (Very Important)
-1. Security Alert: this program passes the arguments after formatting them to the command line shell which would open a potential command injection attack. For now please make sure it has only the privileges it needs, no root or admin privileges should be granted.<br><br>2. This is my first rust project so there might be a lot of weird approches for some problems but I will optimize the solutions as I am learning.<br><br>3. Have fun.
+1. Security Alert: this program passes the arguments after formatting them to the command line shell which would open a potential command injection attack. For now please make sure it has only the privileges it needs, no root or admin privileges should be granted.
+2. This is my first rust project so there might be a lot of weird approches for some problems but I will optimize the solutions as I am learning.
+3. Have fun.
 ---  
